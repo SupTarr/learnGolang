@@ -3,7 +3,13 @@ package main
 import "fmt"
 
 func sum(nums ...float64) float64 {
-	// ?
+	result := 0.0
+
+	for i := 0; i < len(nums); i++ {
+		result += nums[i]
+	}
+
+	return result
 }
 
 // don't edit below this line
