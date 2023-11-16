@@ -5,7 +5,18 @@ import (
 )
 
 func sendSMSToCouple(msgToCustomer, msgToSpouse string) (float64, error) {
-	// ?
+	costCustomer, errCustomer := sendSMS(msgToCustomer)
+	costSpouse, errSpouse := sendSMS(msgToSpouse)
+
+	if errCustomer != nil {
+		return 0.0, errCustomer
+	}
+
+	if errSpouse != nil {
+		return 0.0, errSpouse
+	}
+
+	return costCustomer + costSpouse, nil
 }
 
 // don't edit below this line
